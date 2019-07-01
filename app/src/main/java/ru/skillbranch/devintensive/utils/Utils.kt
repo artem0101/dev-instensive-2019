@@ -15,6 +15,10 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        TODO()
+        val firstInitial: String = firstName?.first().toString()
+        val lastInitial: String = lastName?.first().toString()
+
+        return "$firstInitial$lastInitial"
     }
 }
+

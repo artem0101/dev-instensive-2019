@@ -63,6 +63,4 @@ data class User(
         """.trimIndent()
     )
 
-
-
 }
