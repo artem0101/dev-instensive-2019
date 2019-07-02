@@ -7,7 +7,7 @@ object Utils {
         var firstName = parts?.getOrNull(0)
         var lastName = parts?.getOrNull(1)
 
-        return firstName to lastName
+        return isEmpty(firstName) to isEmpty(lastName)
     }
 
     fun transliteration(payload: String, divider: String = " "): String {
@@ -20,5 +20,7 @@ object Utils {
 
         return "$firstInitial$lastInitial"
     }
+
+    private fun isEmpty(value: String?)= if (value == "" || value == " ") null else value
 }
 
