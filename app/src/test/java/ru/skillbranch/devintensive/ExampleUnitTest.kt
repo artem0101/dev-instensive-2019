@@ -85,7 +85,7 @@ class ExampleUnitTest {
     @Test
     fun test_data_maping() {
         val user = User.makeUser("Корякин Артём")
-        val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
+//        val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
 
         val userView = user.toUserView()
 
