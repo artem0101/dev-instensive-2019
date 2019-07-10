@@ -29,7 +29,11 @@ fun Date.add(value: Int, units: TimeUnits = TimeUnits.SECOND): Date {
 }
 
 internal fun Date.humanizeDiff(date: Date = Date()): String {
-    TODO("not implemented") //To change body of created functions use file
+//    TODO("not implemented") //To change body of created functions use file
+    val currentDate = Date().time - date.time
+
+    return currentDate.toString()
+
 }
 
 enum class TimeUnits {
