@@ -2,6 +2,7 @@
 
 # Gradle files
 .gradle/
+.idea
 
 # User-specific configurations
 *.iml
