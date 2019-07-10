@@ -12,7 +12,7 @@ object Utils {
     fun transliteration(payload: String, divider: String = " "): String {
         val stringBuilder: StringBuilder = StringBuilder(payload.length * 2)
         for (ch in payload.toCharArray()) {
-            when(ch) {
+            when (ch) {
                 'А' -> stringBuilder.append('A')
                 'Б' -> stringBuilder.append('B')
                 'В' -> stringBuilder.append('V')
@@ -85,13 +85,24 @@ object Utils {
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
-        val firstInitial: String = firstName?.first().toString()
-        val lastInitial: String = lastName?.first().toString()
+        val firstInitial: String = if (firstName.isNullOrEmpty()) "null" else firstName.first().toString()
+        val lastInitial: String = if (lastName.isNullOrEmpty()) "null" else lastName.first().toString()
 
-        return "$firstInitial$lastInitial"
+        val stringBuilder: StringBuilder = java.lang.StringBuilder()
+
+        if (firstInitial in listOf(" ", "null") && lastInitial in listOf(" ", "null")) {
+            stringBuilder.append("null")
+        } else if (firstInitial !in listOf(" ", "null") && lastInitial !in listOf(" ", "null")) {
+            stringBuilder.append(firstInitial.toUpperCase())
+            stringBuilder.append(lastInitial.toUpperCase())
+        } else if (firstInitial != "null" && lastInitial == "null") {
+            stringBuilder.append(firstInitial.toUpperCase())
+        }
+
+        return stringBuilder.toString()
     }
 
-    private fun isEmpty(value: String?)= if (value == "" || value == " ") null else value
+    private fun isEmpty(value: String?) = if (value == "" || value == " ") null else value
 
 
 }

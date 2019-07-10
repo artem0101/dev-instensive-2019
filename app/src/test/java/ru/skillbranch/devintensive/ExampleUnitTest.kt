@@ -8,6 +8,7 @@ import ru.skillbranch.devintensive.extensions.add
 import ru.skillbranch.devintensive.extensions.format
 import ru.skillbranch.devintensive.extensions.toUserView
 import ru.skillbranch.devintensive.models.*
+import ru.skillbranch.devintensive.utils.Utils
 import java.util.*
 
 /**
@@ -85,7 +86,7 @@ class ExampleUnitTest {
     @Test
     fun test_data_maping() {
         val user = User.makeUser("Корякин Артём")
-//        val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
+        val newUser = user.copy(lastVisit = Date().add(-7, TimeUnits.SECOND))
 
         val userView = user.toUserView()
 
